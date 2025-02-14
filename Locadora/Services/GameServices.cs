@@ -17,21 +17,18 @@ public class GameServices{
     {
         return _context.Games.SingleOrDefault(G => G.Id == id);
     }
-    public void CreateGame(Game game)
+    public bool CreateGame(Game game)
     {
         if(game != null){
-            if(!String.IsNullOrWhiteSpace(game.Name))
-                game.Name = game.Name;
-            
-            if(game.LimitAge < 0 || game.LimitAge > 18)
-                game.LimitAge = game.LimitAge;
-
-            if(DateTime.MinValue <= game.ReleaseDate)
-                game.ReleaseDate = game.ReleaseDate;
-        
-            _context.Games.Add(game);
-            _context.SaveChanges();
+            if(!String.IsNullOrWhiteSpace(game.Name) && game.LimitAge > 0 && game.LimitAge <= 18 && DateTime.MinValue <= game.ReleaseDate)
+            {   
+                game.Id = 0;     
+                _context.Games.Add(game);
+                _context.SaveChanges();
+                return true;
+            }
         }
+        return false;
     }
     public Game? UpdateGame(int id, Game gameUpt)
     {
@@ -46,6 +43,15 @@ public class GameServices{
 
             if(DateTime.MinValue <= gameUpt.ReleaseDate)
                 game.ReleaseDate = gameUpt.ReleaseDate;
+        }
+        _context.SaveChanges();
+        return game;
+    }
+    public Game? DeleteGame(int id){
+        Game? game = _context.Games.SingleOrDefault(G => G.Id == id);
+        if(game != null)
+        {
+            _context.Games.Remove(game);
         }
         _context.SaveChanges();
         return game;
