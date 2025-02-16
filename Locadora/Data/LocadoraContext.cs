@@ -1,4 +1,6 @@
 using Locadora.Models;
+using Locadora.Models.EmployeeAttendant;
+using Locadora.Models.EmployeeRecepcionist;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -9,4 +11,6 @@ public class LocadoraContext : DbContext{
     {
     }
     public DbSet<Game> Games { get; set; }
+    public DbSet<Attendant> Attendants { get; set; }
+    public DbSet<Recepcionist> Recepcionists { get; set; }
 }
