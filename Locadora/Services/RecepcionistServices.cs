@@ -44,7 +44,14 @@ public class RecepcionistServices : EmployeeServices{
     }
     public override IEnumerable<Employee> GetAllEmployees()
     {
-        throw new NotImplementedException();
+        List<Employee> employees = [];
+        foreach(Employee rec in _context.Recepcionists)
+            employees.Add(rec);
+
+        foreach(Employee att in _context.Attendants) 
+            employees.Add(att);
+        
+        return employees;
     }
     public override Employee? GetEmployeeById(int Id)
     {
