@@ -10,7 +10,8 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<GameServices>();
-
+builder.Services.AddScoped<AttendantServices>();
+builder.Services.AddScoped<RecepcionistServices>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

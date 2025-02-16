@@ -14,37 +14,50 @@ public class RecepcionistServices : EmployeeServices{
     }
     public override void CreateEmployee(Employee employee)
     {
+        char gen = char.ToUpper(employee.Gender);
+        employee.Gender = char.ToUpper(employee.Gender);
+
         if(employee != null){
-            employee.Id = 0;
-            _context.Recepcionists.Add((Recepcionist)employee);
-            _context.SaveChanges();
+
+            if(employee.Balance > 1000 && !String.IsNullOrWhiteSpace(employee.Name) && ((gen == 'F') || (gen == 'M')))
+            {
+                employee.Id = 0;
+                _context.Recepcionists.Add((Recepcionist)employee);
+                _context.SaveChanges();
+            }
         }
     }
     public override Employee? PutEmployee(int Id, Employee employee)
     {
+        char gen = char.ToUpper(employee.Gender);
+        employee.Gender = char.ToUpper(employee.Gender);
+
         if(employee == null){
             return null;
         }
 
-        Recepcionist? rec;
-        rec = _context.Recepcionists.SingleOrDefault(rec => rec.Id == Id);
-        
+        Recepcionist? rec = _context.Recepcionists.SingleOrDefault(A => A.Id == Id);
+
         if(rec != null){
+            
+            if(employee.Balance < 1000 && String.IsNullOrWhiteSpace(employee.Name) && (gen != 'F') && (gen != 'M'))
+            {
+                return null;
+            }
+
             rec.Balance = employee.Balance;
             rec.Name = employee.Name;
-            rec.Gender = rec.Gender;
+            rec.Gender = char.ToUpper(employee.Gender);
+
+            _context.SaveChanges();
         }
-        _context.SaveChanges();
 
         return rec;
-    }
-    public override Employee? DeleteEmployee(int Id)
-    {
-        throw new NotImplementedException();
     }
     public override IEnumerable<Employee> GetAllEmployees()
     {
         List<Employee> employees = [];
+
         foreach(Employee rec in _context.Recepcionists)
             employees.Add(rec);
 
@@ -58,6 +71,10 @@ public class RecepcionistServices : EmployeeServices{
         throw new NotImplementedException();
     }
     public override Employee? GetEmployeeByName(string Name)
+    {
+        throw new NotImplementedException();
+    }
+    public override Employee? DeleteEmployee(int Id)
     {
         throw new NotImplementedException();
     }
