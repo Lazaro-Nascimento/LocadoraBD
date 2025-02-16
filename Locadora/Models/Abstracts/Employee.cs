@@ -1,7 +1,7 @@
 namespace Locadora.Models.Abstracts;
 
 public abstract class Employee{
-    public int Matricula { get; set; } = 100001;
+    public int Id { get; set; } = 100001;
     public string Name { get; set; }
     public double Balance { get; set; }
     public char Gender { get; set; }
