@@ -146,3 +146,4 @@ C:\Users\Lázaro Nascimento\Documents\csharp\Projetos\BD\LocadoraBD\Locadora\obj
 C:\Users\Lázaro Nascimento\Documents\csharp\Projetos\BD\LocadoraBD\Locadora\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Lázaro Nascimento\Documents\csharp\Projetos\BD\LocadoraBD\Locadora\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Lázaro Nascimento\Documents\csharp\Projetos\BD\LocadoraBD\Locadora\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Lázaro Nascimento\Documents\csharp\Projetos\BD\LocadoraBD\Locadora\obj\Debug\net9.0\Locadora.sourcelink.json

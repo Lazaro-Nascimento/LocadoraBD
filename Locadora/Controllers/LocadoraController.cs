@@ -36,7 +36,7 @@ public class LocadoraController : ControllerBase{
         else
             return BadRequest("Jogo Inválido!!");
     }
-    [HttpDelete("{id}")]0
+    [HttpDelete("{id}")]
     public ActionResult Delete(int id)
     {
         Game? game = gameServices.DeleteGame(id);
