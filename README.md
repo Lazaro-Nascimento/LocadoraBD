@@ -1,6 +1,8 @@
+
 Este é um sistema que consiste em aplicar os conhecimentos na linguagem C# utilizando o Asp.NET para compor aplicações Web e persistindo dados com SQLite
 
 Neste sistema possuem duas categorias de funcionário: Attendant e Recepcionists.
+
 Ambos compartilham de uma mesma classe Pai, porém possuem alguns métodos distintos:
     • A classe Recepcionists:
         Tem a função de cadastrar e realizar a inserção de planos para clientes;
